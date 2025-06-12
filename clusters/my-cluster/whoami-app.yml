@@ -1,0 +1,40 @@
+# clusters/my-cluster/whoami-app.yaml
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  # This is the name of THIS Kustomization object
+  name: whoami-app
+  # It must live in the flux-system namespace
+  namespace: flux-system
+spec:
+  # How often Flux should check for changes in the path
+  interval: 10m0s
+  
+  # This is the most important part:
+  # It points to the directory in your repo containing the base manifests.
+  path: ./base/apps/whoami
+  
+  # This ensures that if you remove this file, Flux cleans up the app
+  prune: true
+  
+  # This points to the GitRepository object defined in your gotk-sync.yaml
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    
+  # --- CLUSTER-SPECIFIC OVERLAYS ---
+  
+  # Deploy all resources from the base into the 'whoami-ns' namespace
+  targetNamespace: whoami
+  
+  # This patch creates the 'whoami-ns' namespace if it doesn't exist.
+  # It's a clean way to manage namespaces alongside your apps.
+  patches:
+    - patch: |
+        - op: add
+          path: /spec/values/replicaCount
+          value: 1
+      target:
+        kind: HelmRelease
+        name: whoami

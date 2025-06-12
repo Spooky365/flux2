@@ -1,0 +1,11 @@
+# clusters/my-cluster/kustomization.yaml
+# This file is automatically processed by the flux-system Kustomization from your gotk-sync.yaml, because it lives at the root of the path it's watching (./clusters/my-cluster).
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  # Add this line to include your new app's Kustomization CR
+  - whoami-app.yaml
+  
+  # If you had another app, you'd add its file here too:
+  # - grafana-app.yaml

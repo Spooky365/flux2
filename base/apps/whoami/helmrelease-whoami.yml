@@ -1,0 +1,34 @@
+# base/apps/whoami/helm-release.yaml
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  # The name of this release
+  name: whoami
+  # The namespace for this release will be set by the Kustomization in the cluster folder
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: whoami
+      version: 5.3.0
+      sourceRef:
+        kind: HelmRepository
+        # This must match the name of the HelmRepository object above
+        name: cowboysysop
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  # You can override chart values here, just like in a values.yaml file
+  values:
+    replicaCount: 1
+    service:
+      type: ClusterIP
+      port: 80
+    ingress:
+      enabled: false
+      # We will override this hostname per-environment
