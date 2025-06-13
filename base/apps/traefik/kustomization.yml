@@ -1,0 +1,7 @@
+# base/apps/whoami/kustomization.yaml
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - release-helm-traefik.yml 
+  - repo-helm-traefik.yml 

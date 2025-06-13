@@ -6,8 +6,12 @@ kind: Kustomization
 resources:
   # Add this line to include your new app's Kustomization CR
   - ./flux-system
-  - ./namespaces/namespace.yml 
+  - ./namespaces/whoami-namespace.yml
+  - ./namespaces/traefik-namespace.yml
+  - ./namespaces/cert-manager-namespace.yml
   # If you had another app, you'd add its file here too:
+  - traefik-app.yml
+  - cert-manager-app.yml
   - whoami-app.yml
   - ./certs/whoami-certs.yml
   # - grafana-app.yaml

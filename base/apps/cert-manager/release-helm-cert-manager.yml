@@ -1,0 +1,29 @@
+# base/apps/whoami/helm-release.yaml
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  # The name of this release
+  name: cert-manager
+  # The namespace for this release will be set by the Kustomization in the cluster folder
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: cert-manager 
+      version: 1.18.0 
+      sourceRef:
+        kind: HelmRepository
+        # This must match the name of the HelmRepository object above
+        name: cert-manager-repo
+        namespace: cert-manager
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  # You can override chart values here, just like in a values.yaml file
+  values:
+    replicaCount: 1
+      # We will override this hostname per-environment

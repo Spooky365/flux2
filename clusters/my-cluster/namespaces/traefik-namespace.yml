@@ -1,0 +1,6 @@
+# clusters/my-cluster/apps/whoami/namespace.yaml
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: traefik 
