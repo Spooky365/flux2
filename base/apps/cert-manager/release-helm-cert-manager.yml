@@ -25,5 +25,6 @@ spec:
       retries: 3
   # You can override chart values here, just like in a values.yaml file
   values:
-    replicaCount: 1
       # We will override this hostname per-environment
+    installCRDs: true
+    replicaCount: 1
