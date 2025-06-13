@@ -1,5 +1,5 @@
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
   # The name of this release
@@ -19,9 +19,11 @@ spec:
   install:
     remediation:
       retries: 3
+    crds: CreateReplace 
   upgrade:
     remediation:
       retries: 3
+    crds: CreateReplace 
   # You can override chart values here, just like in a values.yaml file
   values:
       # We will override this hostname per-environment
