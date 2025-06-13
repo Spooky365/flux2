@@ -27,7 +27,11 @@ spec:
   
   # Deploy all resources from the base into the 'whoami-ns' namespace
   targetNamespace: whoami
-  
+
+  dependsOn:
+    - name: cert-manager-app 
+
+   
   # This patch creates the 'whoami-ns' namespace if it doesn't exist.
   # It's a clean way to manage namespaces alongside your apps.
   patches:
