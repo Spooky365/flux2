@@ -1,0 +1,75 @@
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: acme-issuer
+spec:
+  acme:
+     email: falksolution@gmail.com 
+    # Letsencrypt Production
+     server: https://acme-v02.api.letsencrypt.org/directory
+    # - or -
+    # Letsencrypt Staging
+    # server: https://acme-staging-v02.api.letsencrypt.org/directory
+     privateKeySecretRef:
+       name: issuer-account-key
+     solvers:
+    # DNS Challenge:
+    # - dns01:
+        # Configure your DNS Provider here...
+        # ---
+    #     cloudflare:
+    #       email: falksolution@gmail.com 
+       #  API Key :
+    #       apiKeySecretRef:
+    #         name: cloudflare-api-key-secret
+    #         key: api-key 
+        # - or -
+        # API Token:
+        #   apiTokenSecretRef:
+        #     name: cloudflare-api-token-secret
+        #     key: api-token        
+      # (Optional) Add DNS selectors
+      # ---
+      # selector:
+      #   dnsZones:
+      #   - 'your-domain'
+
+#       HTTP Challenge:
+       - http01:
+           ingress:
+             class: traefik
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cert-falksolu 
+  namespace: whoami
+spec:
+  secretName: cert-falksolu
+  issuerRef:
+    name: acme-issuer 
+    kind: ClusterIssuer
+  commonName: "lukflk.run.place"
+  dnsNames:
+  - "lukflk.run.place"
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: whoami-route
+  namespace: whoami 
+spec:
+  entryPoints:
+    - websecure 
+  routes:
+    - match: Host(`lukflk.run.place`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: whoami
+          port: 80
+          namespace: whoami
+  tls:
+    secretName: cert-falksolu

@@ -9,4 +9,5 @@ resources:
   - ./namespaces/namespace.yml 
   # If you had another app, you'd add its file here too:
   - whoami-app.yml
+  - ./certs/whoami-certs.yml
   # - grafana-app.yaml
