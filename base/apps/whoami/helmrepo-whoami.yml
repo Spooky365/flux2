@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: cowboysysop
-  namespace: flux-system
+  namespace: whoami
 spec:
   interval: 1m
   url: https://cowboysysop.github.io/charts/

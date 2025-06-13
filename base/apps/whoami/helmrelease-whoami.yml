@@ -16,7 +16,7 @@ spec:
         kind: HelmRepository
         # This must match the name of the HelmRepository object above
         name: cowboysysop
-        namespace: flux-system
+        namespace: whoami 
   install:
     remediation:
       retries: 3
