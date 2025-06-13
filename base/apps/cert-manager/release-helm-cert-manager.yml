@@ -27,5 +27,5 @@ spec:
   # You can override chart values here, just like in a values.yaml file
   values:
       # We will override this hostname per-environment
-    installCRDs: true
+#    installCRDs: true
     replicaCount: 1
