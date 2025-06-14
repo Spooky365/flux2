@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: my-react-app
+  namespace: my-react-app
+spec:
+  entryPoints:
+    - websecure # Assumes your Traefik is listening on the 'websecure' entrypoint for HTTPS
+  routes:
+  - match: Host(`lukflk.run.place`) # !!! IMPORTANT: CHANGE THIS to your desired URL
+    kind: Rule
+    services:
+    - name: my-react-app-svc # Points to the Service we created above
+      port: 80
+  tls:
+    secretName: cert-falksolu # Specifies which Kubernetes secret contains the TLS certificate
