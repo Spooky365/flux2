@@ -1,13 +1,27 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1
+#
+# This file tells Kustomize which resources to apply for your app.
+# It should be located at: apps/my-react-app/kustomization.yaml
+#
+apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: apps
-  namespace: flux-system
-spec:
-  interval: 10m
-  # This Kustomization will apply everything in the current directory and its subdirectories.
-  path: ./clusters/my-cluster/apps 
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
+
+# This ensures all resources in this directory are deployed to the 'my-react-app' namespace.
+namespace: my-react-app
+
+# List of all the manifest files to be included in the deployment.
+# The order is for human readability; Kustomize is smart enough to figure out dependencies.
+resources:
+  # 1. Core application setup
+  - namespace.yml
+  - deployment.yml  
+  - service.yml
+
+  # 2. Ingress and SSL setup (using Traefik and Cert-Manager)
+  - clusterissuer.yml
+  - ingressroute.yml
+  - certificate.yml
+
+  # 3. Flux Image Automation setup
+  - image-repo.yml
+  - image-policy.yml
+  - image-update-automation.yml
