@@ -18,7 +18,6 @@ spec:
       containers:
         - name: react-app
           image: skoopy365/my-react-app:20250614-034504
-          imagePullPolicy: Always 
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
-
