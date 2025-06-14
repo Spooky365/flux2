@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-react-app
-  namespace: my-react-app # We will deploy our apps to the 'apps' namespace
+  namespace: default # We will deploy our apps to the 'apps' namespace
 spec:
   replicas: 1
   selector:

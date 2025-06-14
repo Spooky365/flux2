@@ -1,9 +1,0 @@
-apiVersion: image.toolkit.fluxcd.io/v1beta2
-kind: ImageRepository
-metadata:
-  name: my-react-app
-  namespace: my-react-app
-spec:
-  # !!! IMPORTANT: CUSTOMIZE THIS LINE !!!
-  image: skoopy365/my-react-app
-  interval: 1m
