@@ -5,4 +5,4 @@ resources:
 
 images:
   - name: skoopy365/my-react-app
-    newTag: "latest"  # Placeholder; will be overwritten by ImagePolicy
+    newTag: use-latest  # Placeholder; will be overwritten by ImagePolicy
