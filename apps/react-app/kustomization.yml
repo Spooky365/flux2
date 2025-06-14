@@ -2,3 +2,7 @@ resources:
   - deployment.yml
   - service.yml
   - ingress-tls-terraform.yml
+
+images:
+  - name: skoopy365/my-react-app
+    newTag: "latest"  # Placeholder; will be overwritten by ImagePolicy
