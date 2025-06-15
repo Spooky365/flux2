@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: react-app
-          image: skoopy365/my-react-app:latest
+          image: skoopy365/my-react-app:20250614-140739 # {"$imagepolicy": "flux-system:my-react-app"}
           ports:
             - containerPort: 80

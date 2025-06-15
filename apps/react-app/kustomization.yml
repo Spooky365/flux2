@@ -5,6 +5,6 @@ resources:
   - image-policy.yaml
   - skoopy-registry.yml
   - image-update-automation.yml
-images:
-  - name: skoopy365/my-react-app
-    newTag: 20250614-140739  
+#images:
+#  - name: skoopy365/my-react-app
+#    newTag: 20250614-140739  
