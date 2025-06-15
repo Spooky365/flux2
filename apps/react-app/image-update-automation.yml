@@ -16,7 +16,7 @@ spec:
       author:
         name: Flux Bot
         email: flux@yourdomain.com
-      messageTemplate: 'chore: update image to {{ .Update.ImageTag }}' 
+      messageTemplate: '{{range .Changed.Changes}}{{print .OldValue}} -> {{println .NewValue}}{{end}}'
   update:
     path: ./apps/react-app
     strategy: Setters 
