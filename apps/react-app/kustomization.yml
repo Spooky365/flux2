@@ -2,7 +2,9 @@ resources:
   - deployment.yml
   - service.yml
   - ingress-tls-terraform.yml
-
+  - image-policy.yaml
+  - skoopy-registry.yml
+  - image-update-automation.yml
 images:
   - name: skoopy365/my-react-app
-    newTag: use-latest  # Placeholder; will be overwritten by ImagePolicy
+    newTag: use-latest  
