@@ -16,7 +16,7 @@ spec:
       author:
         name: Flux Bot
         email: flux@yourdomain.com
-      messageTemplate: "chore: update react-app image to {{ .Image.Tag }}"
+      messageTemplate: 'chore: update {{ .AutomationObject.name }} to {{ .Update.ImageTag }}' 
   update:
     path: ./apps/react-app
     strategy: Setters 
