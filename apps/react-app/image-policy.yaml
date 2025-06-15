@@ -7,5 +7,5 @@ spec:
   imageRepositoryRef:
     name: my-react-app
   policy:
-    numerical:
+    alphabetical:
       order: asc  # Uses ascending sort → picks the highest/latest
