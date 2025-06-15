@@ -51,9 +51,9 @@ spec:
   issuerRef:
     name: acme-issuer 
     kind: ClusterIssuer
-  commonName: "lukflk.run.place"
+  commonName: "react.run.place"
   dnsNames:
-  - "lukflk.run.place"
+  - "react.run.place"
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
@@ -64,7 +64,7 @@ spec:
   entryPoints:
     - websecure 
   routes:
-    - match: Host(`lukflk.run.place`)
+    - match: Host(`react.run.place`)
       kind: Rule
       services:
         - kind: Service
