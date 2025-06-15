@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: react2
-          image: skoopy365/react2:latest # {"$imagepolicy": "flux-system:react-app-policy"}
+          image: skoopy365/react2:latest # {"$imagepolicy": "flux-system:react2-app-policy"}
           ports:
             - containerPort: 80
