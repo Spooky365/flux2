@@ -19,5 +19,5 @@ spec:
       messageTemplate: "chore: update react-app image to {{ .Image.Tag }}"
   update:
     path: ./apps/react-app
-    strategy: Glob
+    strategy: Setters 
 
