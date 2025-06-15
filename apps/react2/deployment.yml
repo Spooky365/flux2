@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react2
+  namespace: default
+  labels:
+    app: react2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react2
+  template:
+    metadata:
+      labels:
+        app: react2
+    spec:
+      containers:
+        - name: react2
+          image: skoopy365/react2:latest # {"$imagepolicy": "flux-system:react-app-policy"}
+          ports:
+            - containerPort: 80

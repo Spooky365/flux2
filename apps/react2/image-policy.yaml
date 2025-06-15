@@ -1,0 +1,11 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2 
+kind: ImagePolicy
+metadata:
+  name: react2-app-policy
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: react2
+  policy:
+    alphabetical:
+      order: asc  # Uses ascending sort → picks the highest/latest

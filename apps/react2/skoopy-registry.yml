@@ -1,0 +1,8 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: react2
+  namespace: flux-system
+spec:
+  image: skoopy365/react2
+  interval: 10s
