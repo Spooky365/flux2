@@ -38,7 +38,7 @@ spec:
 #       HTTP Challenge:
        - http01:
            ingress:
-             class: traefik
+             class: haproxy
 
 ---
 apiVersion: cert-manager.io/v1
@@ -55,21 +55,26 @@ spec:
   dnsNames:
   - "react.run.place"
 ---
-apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: react-route
-  namespace: default
+  name: react-app
+  annotations:
+    cert-manager.io/cluster-issuer: "acme-issuer"
 spec:
-  entryPoints:
-    - websecure 
-  routes:
-    - match: Host(`react.run.place`)
-      kind: Rule
-      services:
-        - kind: Service
-          name: my-react-app-service
-          port: 80
-          namespace: default
+  ingressClassName: haproxy
   tls:
-    secretName: cert-falksolu
+    - hosts:
+        - react.run.place
+      secretName: cert-falksolu 
+  rules:
+    - host: react.run.place
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: my-react-app-service
+                port:
+                  number: 80
