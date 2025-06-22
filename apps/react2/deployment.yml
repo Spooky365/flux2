@@ -6,7 +6,7 @@ metadata:
   labels:
     app: react2
 spec:
-  replicas: 6 
+  replicas: 12 
   selector:
     matchLabels:
       app: react2
