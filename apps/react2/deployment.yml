@@ -5,7 +5,7 @@ metadata:
   name: react2
   namespace: default
 spec:
-  replicas: 3 
+  replicas: 3
   selector:
     matchLabels:
       app: react2
@@ -16,12 +16,12 @@ spec:
     spec:
       containers:
         - name: react2
-          image: skoopy365/react2:sha-f8f774e # This will be updated by Flux
+          image: skoopy365/react2:sha-f8f774e # {"$imagepolicy": "flux-system:react2-policy"}
           ports:
             - containerPort: 3001
           envFrom:
             - secretRef:
-                name: react2-secrets 
+                name: react2-secrets
           readinessProbe:
             httpGet:
               path: /
