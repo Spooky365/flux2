@@ -6,15 +6,7 @@ metadata:
   labels:
     app: react2
 spec:
-<<<<<<< HEAD
-<<<<<<< HEAD
-  replicas: 12 
-=======
   replicas: 6
->>>>>>> 59d693e32cc8c2205c2645493db193ceb42378bf
-=======
-  replicas: 12
->>>>>>> bc77f5a0ea2b4e99cc17b47c9990087a909ad6d4
   selector:
     matchLabels:
       app: react2
@@ -25,10 +17,6 @@ spec:
     spec:
       containers:
         - name: react2
-<<<<<<< HEAD
           image: skoopy365/react2:20250622-062154 # {"$imagepolicy": "flux-system:react2-app-policy"}
-=======
-          image: skoopy365/react2:sha-f8f774e # {"$imagepolicy": "flux-system:react2-app-policy"}
->>>>>>> bc77f5a0ea2b4e99cc17b47c9990087a909ad6d4
           ports:
             - containerPort: 80
