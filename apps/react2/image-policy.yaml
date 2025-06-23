@@ -9,6 +9,6 @@ spec:
   policy:
     # GEÄNDERT: von 'semver' auf 'numerical' umgestellt.
     # Dies ist die korrekte Policy für numerische/datumsbasierte Tags.
-    numerical:
+    alphabetical:
       # 'asc' (ascending) wählt den höchsten numerischen Wert aus.
       order: asc
