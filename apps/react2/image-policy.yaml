@@ -7,10 +7,8 @@ spec:
   imageRepositoryRef:
     name: react2
   policy:
-    # GEÄNDERT: von 'alphabetical' auf 'semver' umgestellt.
-    # Dies ist die robusteste Methode, um die "neueste" Version zu finden.
-    semver:
-      # Die 'range' gibt an, welche Versionen überhaupt in Betracht gezogen werden.
-      # '*' bedeutet, dass alle Versionen gültig sind.
-      # Sie könnten hier auch z.B. '>1.0.0' verwenden, wenn Sie semver nutzen.
-      range: '*'
+    # GEÄNDERT: von 'semver' auf 'numerical' umgestellt.
+    # Dies ist die korrekte Policy für numerische/datumsbasierte Tags.
+    numerical:
+      # 'asc' (ascending) wählt den höchsten numerischen Wert aus.
+      order: asc
