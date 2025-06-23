@@ -21,7 +21,7 @@ spec:
             - containerPort: 3001
           envFrom:
             - secretRef:
-                name: react2-secrets # The name of the Secret you just created
+                name: react2-secrets 
           readinessProbe:
             httpGet:
               path: /
