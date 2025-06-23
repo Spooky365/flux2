@@ -19,4 +19,16 @@ spec:
         - name: react2
           image: skoopy365/react2:sha-f8f774e # {"$imagepolicy": "flux-system:react2-app-policy"}
           ports:
-            - containerPort: 80
+            - containerPort: 3001
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3001 
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3001 
+            initialDelaySeconds: 15
+            periodSeconds: 20
