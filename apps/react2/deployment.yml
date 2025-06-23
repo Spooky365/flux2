@@ -1,12 +1,11 @@
+# Deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: react2
   namespace: default
-  labels:
-    app: react2
 spec:
-  replicas: 6
+  replicas: 3 
   selector:
     matchLabels:
       app: react2
@@ -17,18 +16,21 @@ spec:
     spec:
       containers:
         - name: react2
-          image: skoopy365/react2:20250623-105355 # {"$imagepolicy": "flux-system:react2-app-policy"}
+          image: skoopy365/react2:sha-f8f774e # This will be updated by Flux
           ports:
             - containerPort: 3001
+          envFrom:
+            - secretRef:
+                name: react2-secrets # The name of the Secret you just created
           readinessProbe:
             httpGet:
               path: /
-              port: 3001 
-            initialDelaySeconds: 5
+              port: 3001
+            initialDelaySeconds: 15
             periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /
-              port: 3001 
-            initialDelaySeconds: 15
+              port: 3001
+            initialDelaySeconds: 20
             periodSeconds: 20
