@@ -9,6 +9,6 @@ spec:
   policy:
     alphabetical:
       order: asc
-    filterTags:
-      pattern: '^\\d{8}-\\d{6}$'
-      extract: '$0'  
+  #  filterTags:
+  #    pattern: '^\\d{8}-\\d{6}$'
+  #    extract: '$0'  
