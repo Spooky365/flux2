@@ -7,7 +7,7 @@ spec:
   imageRepositoryRef:
     name: react2
   policy:
-    semver:
-      range: ">=0.0.0"  # Allow all semver, or adjust if needed
+    alphabetical:
+      order: asc  # asc = newest at the bottom
   filterTags:
-    pattern: '^alpha\.'  
+    pattern: '^alpha\.\d{14}$'  
