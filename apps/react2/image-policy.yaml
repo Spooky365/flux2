@@ -8,7 +8,7 @@ spec:
     name: react2
   policy:
     alphabetical:
-      order: asc
+      order: desc
   #  filterTags:
   #    pattern: '^\\d{8}-\\d{6}$'
   #    extract: '$0'  
