@@ -7,4 +7,5 @@ spec:
   imageRepositoryRef:
     name: react2
   policy:
-    semverLatest: {}
+    semver:
+      range: '>=2025.0.0' 
