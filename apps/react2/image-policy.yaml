@@ -6,6 +6,9 @@ metadata:
 spec:
   imageRepositoryRef:
     name: react2
+  filterTags:
+    pattern: '^2025\.\d+\.\d+.*$'
+    extract: '$0'
   policy:
     semver:
       range: '>=2025.0.0' 
