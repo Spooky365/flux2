@@ -7,5 +7,4 @@ spec:
   imageRepositoryRef:
     name: react2
   policy:
-    alphabetical:
-      order: asc  
+    semverLatest: {}
