@@ -6,7 +6,6 @@ metadata:
 spec:
   imageRepositoryRef:
     name: react2
-  interval: 10s
   filterTags:
     pattern: '^2025\.\d+\.\d+.*$'
     extract: '$0'
